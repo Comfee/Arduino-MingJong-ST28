@@ -2,7 +2,6 @@ const int motorPin1 = 8;   // Pin Orange
 const int motorPin2 = 9;   // Pin Yellow
 const int motorPin3 = 10;  // Pin Pink
 const int motorPin4 = 11;  // Pin Blue
-//int delayTime = 3; 
 
 void setup() {
    pinMode(motorPin1, OUTPUT); 
@@ -73,33 +72,10 @@ void reverseTurnNrRevsAndDelayTime(int delayMs, int turns){
 
 
 void loop() {
-  turnNrRevsAndDelayTime(3,0);
+  turnNrRevsAndDelayTime(3,1);
   turnNrRevsAndDelayTime(2,500);
-  reverseTurnNrRevsAndDelayTime(3,0);
+  reverseTurnNrRevsAndDelayTime(3,1);
   reverseTurnNrRevsAndDelayTime(2,500);
 
   delay(1000);
-//  digitalWrite(motorPin1, LOW);
-//  digitalWrite(motorPin2, LOW);
-//  digitalWrite(motorPin3, HIGH);
-//  digitalWrite(motorPin4, HIGH);
-//  delay(delayTime);
-
-//  digitalWrite(motorPin1, LOW); 
-//  digitalWrite(motorPin2, HIGH);
-//  digitalWrite(motorPin3, HIGH);
-//  digitalWrite(motorPin4, LOW);
-//  delay(delayTime);
-
-//  digitalWrite(motorPin1, HIGH);
-//  digitalWrite(motorPin2, HIGH);
-//  digitalWrite(motorPin3, LOW);
-//  digitalWrite(motorPin4, LOW);
-//  delay(delayTime);
-  
-//  digitalWrite(motorPin1, HIGH);
-//  digitalWrite(motorPin2, LOW);
-//  digitalWrite(motorPin3, LOW);
-//  digitalWrite(motorPin4, HIGH);
-//  delay(delayTime);
 }
