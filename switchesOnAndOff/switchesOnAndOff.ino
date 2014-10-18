@@ -4,7 +4,7 @@ const int motorPin3 = 10;  // Pin Pink
 const int motorPin4 = 11;  // Pin Blue
 const int buttonPin = 2;
 int buttonState;
-
+int lastButtonState;
 void setup() {
    pinMode(motorPin1, OUTPUT); 
    pinMode(motorPin2, OUTPUT);
@@ -57,6 +57,17 @@ void turnNrRevsAndDelayTime(int delayMs, int turns){
   }
 }
 
+void turn() {
+  step1();
+  delay(3);
+  step2();
+  delay(3);
+  step3();
+  delay(3);
+  step4();
+  delay(3);
+}
+
 void reverseTurnNrRevsAndDelayTime(int delayMs, int turns){
   int delayTime = delayMs;
   int i;
@@ -72,12 +83,20 @@ void reverseTurnNrRevsAndDelayTime(int delayMs, int turns){
     delay(delayTime);
   }
 }
-
+int turnOrNot = LOW;
 void loop() {
   buttonState = digitalRead(buttonPin);
+  if (buttonState != lastButtonState) {
+    if (buttonState == HIGH && turnOrNot == LOW) {
+      turnOrNot = HIGH;
+    }
+    else if (buttonState == HIGH && turnOrNot == HIGH) {
+      turnOrNot = LOW;
+    }
+  }
+  lastButtonState = buttonState;
 
-  if (buttonState == HIGH){
-    turnNrRevsAndDelayTime(3,5);
-    turnNrRevsAndDelayTime(2,50000);  
+  if (turnOrNot == HIGH) {
+    turn();
   }
 }
